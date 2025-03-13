@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish Weight Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Fish Weight Predictor</h2>
+        <form action="/predict" method="post">
+            <label>Length 1 (cm):</label>
+            <input type="number" name="length1" step="any" required>
+            
+            <label>Length 2 (cm):</label>
+            <input type="number" name="length2" step="any" required>
+            
+            <label>Length 3 (cm):</label>
+            <input type="number" name="length3" step="any" required>
+            
+            <label>Height (cm):</label>
+            <input type="number" name="height" step="any" required>
+            
+            <label>Width (cm):</label>
+            <input type="number" name="width" step="any" required>
+            
+            <button type="submit">Predict</button>
+        </form>
+        
+        {% if prediction_text %}
+            <div class="result">
+                <h3>{{ prediction_text }}</h3>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
